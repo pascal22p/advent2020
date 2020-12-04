@@ -81,22 +81,19 @@ def isValidHGT(hgt):
     return isValid
 
 def isValidHCL(hcl):
-    matches = hclRegexp.search(hcl)
-    if matches:
+    if hclRegexp.search(hcl):
         return True
     else:
         return False
 
 def isValidECL(ecl):
     isValid = False
-    if len(ecl) == 3:
-        if ecl in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
-            isValid = True
+    if len(ecl) == 3 and ecl in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
+        isValid = True
     return isValid
 
 def isValidPID(pid):
-    matches = pidRegexp.search(pid)
-    if matches:
+    if pidRegexp.search(pid):
         return True
     else:
         return False
