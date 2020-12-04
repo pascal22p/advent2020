@@ -6,7 +6,6 @@ optionalKeys = ['cid']
 hgtRegexp = re.compile(r"^([0-9]+)(cm|in)$")
 hclRegexp = re.compile(r"^#[0-9a-f]{6}$")
 pidRegexp = re.compile(r"^[0-9]{9}$")
-numberRegexp = re.compile(r"^[0-9]+$")
 DEBUG = False
 
 def validateID(id):
@@ -49,25 +48,22 @@ def validateFields(passport):
     return isValid
 
 def isValidBYR(byr):
-    if numberRegexp.search(byr):
-        if int(byr)>=1920 and int(byr)<=2002:
-            return True
-        else:
-            return False
+    if int(byr)>=1920 and int(byr)<=2002:
+        return True
+    else:
+        return False
 
 def isValidIYR(iyr):
-    if numberRegexp.search(iyr):
-        if int(iyr)>=2010 and int(iyr)<=2020:
-            return True
-        else:
-            return False
+    if int(iyr)>=2010 and int(iyr)<=2020:
+        return True
+    else:
+        return False
 
 def isValidEYR(eyr):
-    if numberRegexp.search(eyr):
-        if int(eyr)>=2020 and int(eyr)<=2030:
-            return True
-        else:
-            return False
+    if int(eyr)>=2020 and int(eyr)<=2030:
+        return True
+    else:
+        return False
 
 def isValidHGT(hgt):
     isValid = False
