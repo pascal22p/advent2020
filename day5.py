@@ -1,9 +1,6 @@
-import numpy
-import collections
-import sys
 
 def part(start, end, part):
-    middle = int((end - start)/2) + start
+    middle = (end - start) // 2 + start
     if part == 'F' or part == 'L':
         return start, middle
     else:
@@ -39,19 +36,19 @@ for input, expected in testData.items():
         print(input, id)
         raise ValueError("Failed id")
 
-ids = numpy.empty((0), dtype=numpy.int32)
+ids = []
 with open('day5input') as file:
     for line in file:
         if len(line.strip())>0:
             row = int(getRow(line.strip()[0:7], 127))
             seat = int(getRow(line.strip()[-3:], 7))
             id = row * 8 + seat
-            ids = numpy.append(ids, id)
+            ids.append(id)
 
 print("Part 1")
-print(numpy.max(ids))
+print(max(ids))
 
 print("Part 2")
-for i in range(numpy.min(ids), numpy.max(ids)):
+for i in range(min(ids), max(ids)):
     if i not in  ids:
         print(i, "is free")
